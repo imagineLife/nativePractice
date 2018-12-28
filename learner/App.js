@@ -1,40 +1,28 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Image } from 'react-native';
+import { AppRegistry, Text, View } from 'react-native';
 
-export default class Bananas extends Component {
+class Greeting extends Component {
   render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
     return (
-      <Image source={pic} style={styles.img}/>
+      <View style={{alignItems: 'center'}}>
+        <Text>Hello {this.props.name}!</Text>
+      </View>
     );
   }
 }
 
+const nameArr = ['Rexxar', 'Jaina', 'Valeera'];
 
+const greetings = nameArr.map(n => {
+  return <Greeting key={n} name={n} />
+})
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  img: {
-    height: 110,
-    width: 195,
-    justifyContent: 'center',
-    alignItems: 'center',
+export default class LotsOfGreetings extends Component {
+  render() {
+    return (
+      <View style={{alignItems: 'center', marginTop: 100}}>
+        {greetings}
+      </View>
+    );
   }
-});
+}
