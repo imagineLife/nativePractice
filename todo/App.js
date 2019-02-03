@@ -59,10 +59,15 @@ export default class App extends Component<Props, Super> {
   }
 
   updateThisItem(srcItem){
-
+  console.log('srcItem')
+  console.log(srcItem)
+  
    //does prevState work here like react?
    this.setState((prevState) => {
-    let thisStateItem = prevState.items.find(itm => item.key === srcItem)
+    console.log('prevState')
+    console.log(prevState)
+    
+    let thisStateItem = prevState.items.find(itm => itm.key === srcItem)
     console.log('thisStateItem')
     console.log(thisStateItem)
     
@@ -85,7 +90,7 @@ export default class App extends Component<Props, Super> {
         <Text style={styles.instructions}>{instructions}</Text>
 
         <View>
-          <Text>MicCheck</Text>
+          <Text>TO DO LIST</Text>
           <FlatList data={this.state.items} renderItem={( {item} ) => {
             return (
               <React.Fragment>
