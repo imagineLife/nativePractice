@@ -46,42 +46,41 @@ export default class App extends Component<Props, Super> {
     this.state = {
       items: [
         {
+          id: 'asdf',
           key: 'todo1',
-          status: 1
+          status: true
         },
         {
+          id: 'qwer',
           key: 'todo2',
-          status: 0
+          status: false
         },
       ]
     }
     this.updateThisItem = this.updateThisItem.bind(this)
   }
 
-  updateThisItem(srcItem){
-  console.log('srcItem')
-  console.log(srcItem)
+
+
+  updateThisItem(bool, srcItem){
   
    //does prevState work here like react?
    this.setState((prevState) => {
-    console.log('prevState')
-    console.log(prevState)
+
+    //loop thru arr
+    let newItems = prevState.items.map(itm => {
+      if(itm.id == srcItem.id) itm.status = !srcItem.status
+      return itm
+    })
+
+    newItems.items = prevState.items
     
-    let thisStateItem = prevState.items.find(itm => itm.key === srcItem)
-    console.log('thisStateItem')
-    console.log(thisStateItem)
-    
-    return {
-      items: prevState.items.filter(it => {
-        return it.key !== srcItem
-      }).concat([{
-        key: srcItem,
-        status: 0
-      }])
-    }
+    return {items: newItems}
    })
 
   }
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -95,7 +94,7 @@ export default class App extends Component<Props, Super> {
             return (
               <React.Fragment>
                 <Switch
-                  onValueChange={this.updateThisItem}
+                  onValueChange={(bool) => this.updateThisItem(bool, item)}
                   value={item.status}/>
                 <Text>
                   {item.key}
