@@ -1,2 +1,0 @@
-# nativePractice
-React Native Practice
