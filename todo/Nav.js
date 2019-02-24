@@ -1,18 +1,16 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import React, {Component} from 'react';
+import { createAppContainer, tabNavigator } from 'react-navigation';
+import { Text, View } from 'react-native';
 
 import ToDoList from './helloWorld'
-import HelloWorld from './helloWorld'
 
-
-
-const NavStack = createStackNavigator(
+const NavStack = tabNavigator(
 
   {
-    ToDoList: { screen: ToDoList }, //friendlyRouteName ie RouteOne
-    HelloWorld: { screen: HelloWorld }, //friendlyRouteName ie RouteTwo
+    ToDoList: { screen: ToDoList }
   },
   {
-    initialRouteName: 'HelloWorld',
+    initialRouteName: 'ToDoList',
   }
 
 );

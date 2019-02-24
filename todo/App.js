@@ -17,14 +17,14 @@ import {
   Switch
 } from 'react-native';
 
-import { NavStackAppContainer } from './Nav'
+import NavStackAppContainer from './Nav'
 
 //flow, structure of expected content
 //<> means allows for type-setting later
 // Array<stateItem> means array MUST contain a stateItem
 
-type Props = {};
-type Super = { items: Array<stateItem> };
+// type Props = {};
+// type Super = { items: Array<stateItem> };
 // type stateItem = { 
 //   txt:String, 
 //   status: Boolean
@@ -35,31 +35,21 @@ type Super = { items: Array<stateItem> };
 /*
   renderItem EXPECTS the destructured parameter to be 'item'
 */
-export default class App extends Component<Props, Super> {
+// export default class App extends Component<Props, Super> {
+export default class App extends Component{
   
   constructor(props){
     super(props)
-  
-    //was items
     this.state = {
       dummy: true
     }
-  
-    // this.updateThisItem = this.updateThisItem.bind(this)
-  
   }
 
 
   render() {
+    console.log('App.js here');
     return (
-      
-      <View style={styles.container}>
-      
-        <View>
-          <Text>TO DO LIST</Text>
-        </View>
-      
-      </View>
+        <NavStackAppContainer />
     );
   }
 }
