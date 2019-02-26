@@ -1,3 +1,5 @@
+// https://snack.expo.io/@react-navigation/hello-world-v3
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -8,7 +10,8 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,17 +21,75 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+// export default class App extends Component<Props> {
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <Text style={styles.welcome}>Welcome to React Native!</Text>
+//         <Text style={styles.instructions}>To get started, edit App.js</Text>
+//         <Text style={styles.instructions}>{instructions}</Text>
+//       </View>
+//     );
+//   }
+// }
+
+class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+     
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+     
+        <Text>Home Screen</Text>
+     
+        <Button
+          title="Go to Details"
+          onPress={() => {
+            this.props.navigation.dispatch(StackActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({ routeName: 'Details' })
+              ],
+            }))
+          }}
+        />
+     
       </View>
     );
-  }
+  }  
 }
+
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+
+         <Button
+          title="Go to Home"
+          onPress={() => {
+            this.props.navigation.dispatch(StackActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({ routeName: 'Home' })
+              ],
+            }))
+          }}
+        />
+      </View>
+    );
+  }  
+}
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  Details: {
+    screen: DetailsScreen,
+  },
+}, {
+    initialRouteName: 'Home',
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -48,3 +109,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default createAppContainer(AppNavigator);
