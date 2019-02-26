@@ -1,0 +1,3 @@
+rootProject.name = 'navPractice'
+
+include ':app'
