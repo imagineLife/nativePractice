@@ -16,8 +16,8 @@ const styles = {
     color: 'grey'
   },
   flex: {
-    c: {flexDirection: 'row'},
-    r: 'row',
+    c: {flexDirection: 'column'},
+    r: {flexDirection: 'row'},
   }
 }
 
@@ -39,17 +39,21 @@ const places = [
 export default class App extends Component {
   render() {
 
-    let placesInList = places.map(pl => {
+    let placesInList = places.map((pl,ind) => {
       return(
         <View 
           key={pl.name}
-          style={styles.flex.c}>
-          <Text>
-            {pl.name}
-          </Text>
-          <Text style={styles.itemSubText}>
-            {pl.addr}
-          </Text>
+          style={styles.flex.r}>
+          
+          <Text>{ind + 1}</Text>
+
+          <View
+            style={styles.flex.c}>
+            <Text>{pl.name}</Text>
+            <Text style={styles.itemSubText}>{pl.addr}</Text>
+          </View>
+
+          <Text>Info</Text>
         </View>)
     })
 
