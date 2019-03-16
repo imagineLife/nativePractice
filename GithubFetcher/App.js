@@ -4,7 +4,7 @@ import {
   Text
 } from 'react-native'
 
-const txtStyle = {
+const styles = {
   title: {
     padding: 40,
     fontSize: 30,
@@ -14,6 +14,10 @@ const txtStyle = {
   },
   itemSubText: {
     color: 'grey'
+  },
+  flex: {
+    c: {flexDirection: 'row'},
+    r: 'row',
   }
 }
 
@@ -37,20 +41,23 @@ export default class App extends Component {
 
     let placesInList = places.map(pl => {
       return(
-        <React.Fragment>
+        <View 
+          key={pl.name}
+          style={styles.flex.c}>
           <Text>
             {pl.name}
           </Text>
-          <Text style={txtStyle.itemSubText}>
+          <Text style={styles.itemSubText}>
             {pl.addr}
           </Text>
-        </React.Fragment>)
+        </View>)
     })
 
     return (
-      <View>
+      <View
+        style={{flex:1}}>
 
-        <Text style={txtStyle.title}>
+        <Text style={styles.title}>
           Restaurant Review
         </Text>
       
