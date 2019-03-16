@@ -1,0 +1,14 @@
+react-native run-ios
+
+metro bundler builds && re-builds the js portion of the app
+
+DEFAULT SIMULATOR
+	react-native run-ios --simulator="iPhone X"
+
+	OR open xCode project, && select the simulator in xCode
+
+	OR anroid emulator
+		find one, open one
+		react-native run-android
+
+	
