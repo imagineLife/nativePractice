@@ -17,8 +17,36 @@ const txtStyle = {
   }
 }
 
+const places = [
+  {
+    name: 'Example Restaurant 1',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 2',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 3',
+    addr: '123 North st'
+  }
+]
+
 export default class App extends Component {
   render() {
+
+    let placesInList = places.map(pl => {
+      return(
+        <React.Fragment>
+          <Text>
+            {pl.name}
+          </Text>
+          <Text style={txtStyle.itemSubText}>
+            {pl.addr}
+          </Text>
+        </React.Fragment>)
+    })
+
     return (
       <View>
 
@@ -26,12 +54,7 @@ export default class App extends Component {
           Restaurant Review
         </Text>
       
-        <Text>
-          Example Restaurant
-        </Text>
-        <Text style={txtStyle.itemSubText}>
-          123 Main Street
-        </Text>
+        {placesInList}     
 
       </View>
     );
