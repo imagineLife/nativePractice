@@ -45,7 +45,7 @@ export default class App extends Component {
           key={pl.name}
           style={styles.flex.r}>
           
-          <Text>{ind + 1}</Text>
+          <Text style={{flex: 1}}>{ind + 1}</Text>
 
           <View
             style={{
@@ -55,7 +55,7 @@ export default class App extends Component {
             <Text style={styles.itemSubText}>{pl.addr}</Text>
           </View>
 
-          <Text>Info</Text>
+          <Text style={{flex: 1}}>Info</Text>
         </View>)
     })
 
