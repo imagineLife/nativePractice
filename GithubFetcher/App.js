@@ -15,6 +15,10 @@ const styles = {
   itemSubText: {
     color: 'grey'
   },
+  singleText: {
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center'},
   flex: {
     c: {flexDirection: 'column'},
     r: {flexDirection: 'row'},
@@ -45,17 +49,21 @@ export default class App extends Component {
           key={pl.name}
           style={styles.flex.r}>
           
-          <Text style={{flex: 1}}>{ind + 1}</Text>
+          <View style={styles.singleText}>
+            <Text>{ind + 1}</Text>
+          </View>
 
           <View
             style={{
               ...styles.flex.c,
-              flex: 1}}>
+              flex: 8}}>
             <Text>{pl.name}</Text>
             <Text style={styles.itemSubText}>{pl.addr}</Text>
           </View>
 
-          <Text style={{flex: 1}}>Info</Text>
+          <View style={styles.singleText}>
+            <Text>Info</Text>
+          </View>
         </View>)
     })
 
