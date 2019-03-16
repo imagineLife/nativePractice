@@ -7,14 +7,18 @@ import {
 const txtStyle = {
   padding: 40,
   fontSize: 30,
-  textAlign: 'center'
+  textAlign: 'center',
+  fontWeight: '300',
+  color: 'steelblue'
 }
 
 export default class App extends Component {
   render() {
     return (
       <View>
-        <Text style={txtStyle}>This is like a p tag in a div</Text>
+        <Text style={txtStyle}>
+          Restaurant Review
+        </Text>
       </View>
     );
   }
