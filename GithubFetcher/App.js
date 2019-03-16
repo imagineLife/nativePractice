@@ -1,29 +1,9 @@
 import React, {Component} from 'react';
 import {
   View, 
-  Text
+  Text,
+  StyleSheet
 } from 'react-native'
-
-const styles = {
-  title: {
-    padding: 40,
-    fontSize: 30,
-    textAlign: 'center',
-    fontWeight: '300',
-    color: 'steelblue'
-  },
-  itemSubText: {
-    color: 'grey'
-  },
-  singleText: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center'},
-  flex: {
-    c: {flexDirection: 'column'},
-    r: {flexDirection: 'row'},
-  }
-}
 
 const places = [
   {
@@ -47,21 +27,19 @@ export default class App extends Component {
       return(
         <View 
           key={pl.name}
-          style={styles.flex.r}>
+          style={styles.row}>
           
-          <View style={styles.singleText}>
+          <View style={styles.edges}>
             <Text>{ind + 1}</Text>
           </View>
 
           <View
-            style={{
-              ...styles.flex.c,
-              flex: 8}}>
+            style={styles.stats}>
             <Text>{pl.name}</Text>
             <Text style={styles.itemSubText}>{pl.addr}</Text>
           </View>
 
-          <View style={styles.singleText}>
+          <View style={styles.edges}>
             <Text>Info</Text>
           </View>
         </View>)
@@ -81,3 +59,23 @@ export default class App extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  title: {
+    padding: 40,
+    fontSize: 30,
+    textAlign: 'center',
+    fontWeight: '300',
+    color: 'steelblue'
+  },
+  row: { flexDirection: 'row'},
+  edges: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  stats: {
+    flexDirection: 'column',
+    flex: 8
+  }
+})
