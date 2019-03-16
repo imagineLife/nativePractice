@@ -48,7 +48,9 @@ export default class App extends Component {
           <Text>{ind + 1}</Text>
 
           <View
-            style={styles.flex.c}>
+            style={{
+              ...styles.flex.c,
+              flex: 1}}>
             <Text>{pl.name}</Text>
             <Text style={styles.itemSubText}>{pl.addr}</Text>
           </View>
