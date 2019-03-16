@@ -11,4 +11,6 @@ DEFAULT SIMULATOR
 		find one, open one
 		react-native run-android
 
-	
+
+Can use hot reloading
+
