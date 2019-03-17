@@ -22,6 +22,42 @@ const places = [
   {
     name: 'Example Restaurant 3',
     addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 21',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 22',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 23',
+    addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 31',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 32',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 33',
+    addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 41',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 42',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 43',
+    addr: '123 North st'
   }
 ]
 

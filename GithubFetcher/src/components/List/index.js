@@ -1,7 +1,8 @@
 import React from 'react';
 import {
 	View,
-	Text
+	Text,
+	ScrollView
 } from 'react-native';
 
 export default function Header({data, searchVal, styles}){
@@ -31,5 +32,5 @@ export default function Header({data, searchVal, styles}){
         </View>)
     })
 
-	return placesInList
+	return <ScrollView>{placesInList}</ScrollView>
 }
