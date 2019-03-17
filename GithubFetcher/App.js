@@ -27,7 +27,10 @@ export default class App extends Component {
   }
   render() {
 
-    let placesInList = places.map((pl,ind) => {
+    let placesInList = places.filter(place => {
+      return !this.state.searchVal ||
+        place.name.toLowerCase().indexOf(this.state.searchVal.toLowerCase()) > -1
+    }).map((pl,ind) => {
       return(
         <View 
           key={pl.name}
