@@ -3,8 +3,11 @@ import {
   View, 
   Text,
   StyleSheet,
-  TextInput //a text box
+  TextInput, //a text box
+  Platform // device-specific
 } from 'react-native'
+
+import Header from './src/components/Header';
 
 const places = [
   {
@@ -26,9 +29,6 @@ export default class App extends Component {
     searchVal: null
   }
   render() {
-
-    console.log('this.state.searchVal')
-    console.log(this.state.searchVal)
     
 
     let placesInList = places.filter(place => {
@@ -60,9 +60,7 @@ export default class App extends Component {
       <View
         style={{flex:1}}>
 
-        <Text style={styles.title}>
-          Restaurant Review
-        </Text>
+        <Header style={styles.title} />
 
         <TextInput 
           style={styles.input} 

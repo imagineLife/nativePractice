@@ -14,3 +14,20 @@ DEFAULT SIMULATOR
 
 Can use hot reloading
 
+Component Mapping
+
+DIV => View
+P => Text
+
+
+
+UI STYLING NOTES
+- fontWeight must be a string not int
+- Text CAN be nested inside text
+
+FLEX - 
+	- UNLIKE WEB, dont need to declare as flex, just the flex style
+	- DEFAULT FLEX is column (not row)
+	- HZ ALIGNMENTL
+		need to declare the flex-direction, most of the time probably, to row
+
