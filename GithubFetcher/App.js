@@ -27,6 +27,10 @@ export default class App extends Component {
   }
   render() {
 
+    console.log('this.state.searchVal')
+    console.log(this.state.searchVal)
+    
+
     let placesInList = places.filter(place => {
       return !this.state.searchVal ||
         place.name.toLowerCase().indexOf(this.state.searchVal.toLowerCase()) > -1
