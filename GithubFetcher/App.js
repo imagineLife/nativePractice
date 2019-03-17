@@ -58,6 +58,54 @@ const places = [
   {
     name: 'Example Restaurant 43',
     addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 51',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 52',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 53',
+    addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 61',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 62',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 63',
+    addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 71',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 72',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 73',
+    addr: '123 North st'
+  },
+  {
+    name: 'Example Restaurant 81',
+    addr: '123 Main st'
+  },
+  {
+    name: 'Example Restaurant 82',
+    addr: '123 South st'
+  },
+  {
+    name: 'Example Restaurant 83',
+    addr: '123 North st'
   }
 ]
 
