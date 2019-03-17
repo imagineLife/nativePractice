@@ -22,6 +22,9 @@ const places = [
 ]
 
 export default class App extends Component {
+  state = {
+    searchVal: null
+  }
   render() {
 
     let placesInList = places.map((pl,ind) => {
@@ -56,7 +59,11 @@ export default class App extends Component {
 
         <TextInput 
           style={styles.input} 
-          placeholder={'Live Search'}/>
+          placeholder={'Live Search'}
+          onChangeText={textVal => {
+            this.setState({searchVal: textVal})
+          }}
+          value={this.state.searchVal} />
       
         {placesInList}     
 
