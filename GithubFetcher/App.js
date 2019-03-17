@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {
   View, 
   Text,
-  StyleSheet
+  StyleSheet,
+  TextInput //a text box
 } from 'react-native'
 
 const places = [
@@ -52,6 +53,10 @@ export default class App extends Component {
         <Text style={styles.title}>
           Restaurant Review
         </Text>
+
+        <TextInput 
+          style={styles.input} 
+          placeholder={'Live Search'}/>
       
         {placesInList}     
 
@@ -77,5 +82,15 @@ const styles = StyleSheet.create({
   stats: {
     flexDirection: 'column',
     flex: 8
+  },
+  input: {
+    marginBottom: 30,
+    padding: 10,
+    paddingHorizontal: 20,
+    fontSize: 16,
+    color: '#444',
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
+    backgroundColor: '#F5F5F5'
   }
 })
