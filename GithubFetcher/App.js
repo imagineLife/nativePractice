@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 
 import Header from './src/components/Header';
+import List from './src/components/List';
 
 const places = [
   {
@@ -29,32 +30,6 @@ export default class App extends Component {
     searchVal: null
   }
   render() {
-    
-
-    let placesInList = places.filter(place => {
-      return !this.state.searchVal ||
-        place.name.toLowerCase().indexOf(this.state.searchVal.toLowerCase()) > -1
-    }).map((pl,ind) => {
-      return(
-        <View 
-          key={pl.name}
-          style={styles.row}>
-          
-          <View style={styles.edges}>
-            <Text>{ind + 1}</Text>
-          </View>
-
-          <View
-            style={styles.stats}>
-            <Text>{pl.name}</Text>
-            <Text style={styles.itemSubText}>{pl.addr}</Text>
-          </View>
-
-          <View style={styles.edges}>
-            <Text>Info</Text>
-          </View>
-        </View>)
-    })
 
     return (
       <View
@@ -69,8 +44,11 @@ export default class App extends Component {
             this.setState({searchVal: textVal})
           }}
           value={this.state.searchVal} />
-      
-        {placesInList}     
+
+        <List 
+          data={places}
+          searchVal={this.state.searchVal}
+          styles={styles}/>
 
       </View>
     );
