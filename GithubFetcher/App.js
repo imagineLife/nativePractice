@@ -27,8 +27,14 @@ export default class App extends Component {
   }
   render() {
 
+    //This logs to chrome console
     console.log('this.state.searchVal')
     console.log(this.state.searchVal)
+
+    /*
+      THIS puts the 'warning' on the ios simulator
+      console.warn('text')
+    */
     
 
     let placesInList = places.filter(place => {
