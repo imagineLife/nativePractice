@@ -33,7 +33,11 @@ export default class App extends Component {
 
     /*
       THIS puts the 'warning' on the ios simulator
+      AND yellow box in chrome console
       console.warn('text')
+
+      THIS puts a big red error screen
+      console.error('text')
     */
     
 
