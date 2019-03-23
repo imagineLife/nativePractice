@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 const places = [
-  {name: 'React Cafe', address: '123 Anywhere St'},
+  {name: 'Cafe', address: '123 Anywhere St'},
   {name: 'Fancy Restaurant', address: '799 Main St'},
   {name: 'Taco Place', address: '550 Maple Rd'},
   {name: "Tony's Diner", address: '4101 College St'},
