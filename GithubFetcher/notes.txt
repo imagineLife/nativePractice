@@ -1,0 +1,33 @@
+react-native run-ios
+
+metro bundler builds && re-builds the js portion of the app
+
+DEFAULT SIMULATOR
+	react-native run-ios --simulator="iPhone X"
+
+	OR open xCode project, && select the simulator in xCode
+
+	OR anroid emulator
+		find one, open one
+		react-native run-android
+
+
+Can use hot reloading
+
+Component Mapping
+
+DIV => View
+P => Text
+
+
+
+UI STYLING NOTES
+- fontWeight must be a string not int
+- Text CAN be nested inside text
+
+FLEX - 
+	- UNLIKE WEB, dont need to declare as flex, just the flex style
+	- DEFAULT FLEX is column (not row)
+	- HZ ALIGNMENTL
+		need to declare the flex-direction, most of the time probably, to row
+
