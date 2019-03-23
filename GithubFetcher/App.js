@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
-
 import {
-  View,
+  View, 
   Text,
   StyleSheet,
-  TextInput,
-  ScrollView,
-  FlatList
+  TextInput //a text box
 } from 'react-native'
 
-import Header from 'components/Header'
-
-import RestaurantRow from 'components/RestaurantRow'
-
-const restaurants = [
+const places = [
   {name: 'React Cafe', address: '123 Anywhere St'},
   {name: 'Fancy Restaurant', address: '799 Main St'},
   {name: 'Taco Place', address: '550 Maple Rd'},
@@ -37,43 +30,57 @@ const restaurants = [
 ]
 
 export default class App extends Component {
-
   state = {
-    search: null
+    searchVal: null
   }
-
   render() {
 
-    return (
-      <View style={{
-        flex: 1
-      }}>
+    console.log('this.state.searchVal')
+    console.log(this.state.searchVal)
+    
 
-        <Header />
+    let placesInList = places.filter(place => {
+      return !this.state.searchVal ||
+        place.name.toLowerCase().indexOf(this.state.searchVal.toLowerCase()) > -1
+    }).map((pl,ind) => {
+      return(
+        <View 
+          key={pl.name}
+          style={styles.row}>
+          
+          <View style={styles.edges}>
+            <Text>{ind + 1}</Text>
+          </View>
+
+          <View
+            style={styles.stats}>
+            <Text>{pl.name}</Text>
+            <Text style={styles.itemSubText}>{pl.addr}</Text>
+          </View>
+
+          <View style={styles.edges}>
+            <Text>Info</Text>
+          </View>
+        </View>)
+    })
+
+    return (
+      <View
+        style={{flex:1}}>
+
+        <Text style={styles.title}>
+          Restaurant Review
+        </Text>
 
         <TextInput 
           style={styles.input} 
-          placeholder="Live Search"
-          onChangeText={text => {
-            this.setState({ search: text })
+          placeholder={'Live Search'}
+          onChangeText={textVal => {
+            this.setState({searchVal: textVal})
           }}
-          value={this.state.search}
-        />
-
-        <FlatList
-          data = {
-            restaurants.filter(place => {
-              return !this.state.search ||
-                place.name.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
-            })
-          }
-          renderItem={({ item, index }) => 
-            <RestaurantRow place={item} index={index} />
-          }
-          keyExtractor={item => item.name}
-          initialNumToRender={16}
-          ListHeaderComponent={<View style={{height: 30}} />}
-        />
+          value={this.state.searchVal} />
+      
+        {placesInList}     
 
       </View>
     );
@@ -81,7 +88,25 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    padding: 40,
+    fontSize: 30,
+    textAlign: 'center',
+    fontWeight: '300',
+    color: 'steelblue'
+  },
+  row: { flexDirection: 'row'},
+  edges: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  stats: {
+    flexDirection: 'column',
+    flex: 8
+  },
   input: {
+    marginBottom: 30,
     padding: 10,
     paddingHorizontal: 20,
     fontSize: 16,
